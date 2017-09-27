@@ -42,6 +42,7 @@ class FilesController extends Controller {
      * @return mixed
      */
     public function actionIndex($view = 'list') {
+        
         if (!in_array($view, ['list', 'grid'])) {
             throw new \Exception('Invalid view.');
         }
@@ -149,7 +150,7 @@ class FilesController extends Controller {
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($id) {
+    public function actionDelete($id) { //TODO
         $model = $this->findModel($id);
 
         if (isset($this->module->storage['s3'])) {

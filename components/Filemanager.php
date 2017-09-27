@@ -25,7 +25,7 @@ class Filemanager {
 
     public static function getThumbnail($fileType, $src, $height = '', $width = '') {
         $thumbnailSize = \Yii::$app->getModule('filemanager')->thumbnailSize;
-
+        
         if ($fileType == 'image') {
             return Html::img($src, ['class' => 'img-responsive']);
         }
@@ -33,7 +33,7 @@ class Filemanager {
         $availableThumbnail = ['archive', 'audio', 'code', 'excel', 'movie', 'pdf', 'powerpoint', 'text', 'video', 'word', 'zip'];
         $type = explode('/', $fileType);
         $faClass = 'fa-file-o';
-        $fontSize = !empty($height) ? $height : "{$thumbnailSize[1]}px";
+        $fontSize = !empty($height) ? $height : "{$thumbnailSize[1]}px";        
 
         if (in_array($type[0], $availableThumbnail)) {
             $faClass = "fa-file-{$type[0]}-o";
