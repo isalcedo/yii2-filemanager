@@ -347,11 +347,21 @@ class FilesController extends Controller {
         $fileId = Yii::$app->request->post('id');
         $model = $this->findModel($fileId);
         $fileType = $model->mime_type;
-        if ($model->dimension) {
-            $src = $model->object_url . $model->thumbnail_name;
-            $fileType = 'image';
+        $public_path = \Yii::$app->getModule('filemanager')->public_path;
+        if(isset($public_path)){
+            if ($model->dimension) {
+                $src = str_replace($public_path, "/", $model->object_url) . $model->thumbnail_name;
+                $fileType = 'image';
+            } else {
+                $src = str_replace($public_path, "/", $model->object_url) . $model->src_file_name;
+            }
         } else {
-            $src = $model->object_url . $model->src_file_name;
+            if ($model->dimension) {
+                $src = $model->object_url . $model->thumbnail_name;
+                $fileType = 'image';
+            } else {
+                $src = $model->object_url . $model->src_file_name;
+            }
         }
 
         $toolArray = [
