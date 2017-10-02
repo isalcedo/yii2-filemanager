@@ -19,7 +19,7 @@ use kartik\grid\GridView;
                     'class' => 'yii\grid\DataColumn',
                     'format' => 'html',
                     'contentOptions' => ['style' => "width: {$gridWidth}px; text-align: center;"],
-                    'value' => function ($model)use ($public_path) {
+                    'value' => function ($model) use ($public_path) {
                         $fileType = $model->mime_type;
                         if ($model->dimension) {
                             $fileType = 'image';
