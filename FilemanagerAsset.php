@@ -8,8 +8,7 @@ class FilemanagerAsset extends AssetBundle {
 
     public $sourcePath = '@dpodium/filemanager/assets';
     public $css = [
-        'css/filemanager.css',
-        'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'
+        'css/filemanager.css'
     ];
     public $js = [
         'js/filemanager.js',
