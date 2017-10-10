@@ -134,7 +134,7 @@ var gridBox = function () {
 
             var $selectedTab = FilemanagerModal.find(tabId);
             var ajaxUrl = '';
-            
+
             if (modal){
             	ajaxUrl = $selectedTab.data('url');
             	ajaxUrl = ajaxUrl.substring(0, ajaxUrl.indexOf('?'));
